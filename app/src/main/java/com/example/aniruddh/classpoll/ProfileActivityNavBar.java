@@ -156,36 +156,23 @@ public class ProfileActivityNavBar extends AppCompatActivity
             }
         });
 
-        //Continue from here
-    }
+            //Continue from here
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,android.R.layout.simple_list_item_1);
+        myListView.setAdapter(adapter);
 
-  /* @Override
-    protected void onStart() {
-        super.onStart();
-
-        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
-
-            //    questionList.clear();
-
-                for(com.google.firebase.database.DataSnapshot pollInformationSnapshot : dataSnapshot.getChildren() ){
-                    PollInformation pollInformation = pollInformationSnapshot.getValue(PollInformation.class);
-                    Toast.makeText(ProfileActivityNavBar.this,pollInformation.getQuestion(), Toast.LENGTH_LONG).show();
-         //           questionList.add(pollInformation);
-
-                }
-        //        QuestionList adapter = new QuestionList(ProfileActivityNavBar.this,questionList);
-      //          myListView.setAdapter(adapter);
-            }
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(ProfileActivityNavBar.this, PollCount.class);
+                startActivity(intent);
 
             }
         });
+
+
     }
-*/
 
     @Override
     public void onBackPressed() {
@@ -203,6 +190,8 @@ public class ProfileActivityNavBar extends AppCompatActivity
         getMenuInflater().inflate(R.menu.profile_activity_nav_bar, menu);
         return true;
     }
+
+
 
   /*  @Override
     public boolean onOptionsItemSelected(MenuItem item) {
