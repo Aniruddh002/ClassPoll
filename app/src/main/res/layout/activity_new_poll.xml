@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aniruddh.classpoll.NewPoll"
+    android:background="#FFFF8D">
+
+    <TextView
+        android:id="@+id/textViewUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_margin="30dp"
+
+        android:text="NEW POLL"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <EditText
+        android:layout_margin="15dp"
+        android:id="@+id/question"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:textSize="20dp"
+        android:hint="Enter your Question"
+        android:layout_below="@+id/textViewUserEmail"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/description"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="Description / Genre"
+        android:layout_below="@+id/question"
+        android:layout_centerHorizontal="true" />
+
+<LinearLayout
+    android:layout_margin="10dp"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/description"
+    android:id="@+id/ll1"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"/>
+
+    <EditText
+        android:id="@+id/option1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Add option 1"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll1"
+        android:id="@+id/ll2"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow"/>
+
+    <EditText
+        android:id="@+id/option2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Add option 2"
+        android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="POST"
+        android:id="@+id/btnpost"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/ll2"
+        android:layout_alignRight="@+id/textViewUserEmail"
+        android:layout_alignEnd="@+id/textViewUserEmail" />
+
+</RelativeLayout>
