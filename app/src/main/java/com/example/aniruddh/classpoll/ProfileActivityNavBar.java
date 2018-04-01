@@ -156,7 +156,7 @@ public class ProfileActivityNavBar extends AppCompatActivity
             }
         });
 
-        //Continue from here
+        //Continue from here!!
     }
 
   /* @Override
