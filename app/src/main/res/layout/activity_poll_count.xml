@@ -7,11 +7,45 @@
     tools:context="com.example.aniruddh.classpoll.PollCount">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/q"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="HELLO THIS IS POLL COUNT"
+        android:hint="Question"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="235dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@id/q"
+        android:hint="Description"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="235dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/o1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@id/d"
+        android:hint="option 1"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="235dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/o2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@id/o1"
+        android:hint="option 2"
         tools:layout_editor_absoluteX="154dp"
         tools:layout_editor_absoluteY="235dp"
         android:layout_centerVertical="true"
