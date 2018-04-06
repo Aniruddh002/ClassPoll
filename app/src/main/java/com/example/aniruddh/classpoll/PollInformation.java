@@ -1,10 +1,12 @@
 package com.example.aniruddh.classpoll;
 
+import java.io.Serializable;
+
 /**
  * Created by hp on 31-03-2018.
  */
 
-public class PollInformation {
+public class PollInformation implements Serializable {
 
     public String question_number;
     public String question;

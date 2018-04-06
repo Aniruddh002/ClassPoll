@@ -40,6 +40,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.aniruddh.classpoll.R.id.textViewQuestion;
+
 public class ProfileActivityNavBar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
@@ -49,7 +51,7 @@ public class ProfileActivityNavBar extends AppCompatActivity
     private DatabaseReference mDatabaseReference;
     private EditText editTextName, editTextAddress;
     private Button buttonSave;
-
+    public final static String ID_EXTRA="com.example.aniruddh.classpoll";
 
 
     ArrayList<String> myArrayList = new ArrayList<>();
@@ -106,7 +108,7 @@ public class ProfileActivityNavBar extends AppCompatActivity
         //editTextAddress=(EditText) findViewById(R.id.editTextAddress);
         //editTextName=(EditText) findViewById(R.id.editTextName);
         //buttonSave=(Button) findViewById(R.id.buttonSave);
-       // LogoutButton = (Button) findViewById(R.id.LogoutButton);
+        // LogoutButton = (Button) findViewById(R.id.LogoutButton);
 
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -124,16 +126,21 @@ public class ProfileActivityNavBar extends AppCompatActivity
         mDatabaseReference.addChildEventListener(new com.google.firebase.database.ChildEventListener() {
             @Override
             public void onChildAdded(com.google.firebase.database.DataSnapshot dataSnapshot, String s) {
-                  questionList.clear();
 
-            for (com.google.firebase.database.DataSnapshot pollInformationSnapshot : dataSnapshot.getChildren()) {
-                PollInformation pollInformation = pollInformationSnapshot.getValue(PollInformation.class);
-                questionList.add(pollInformation);
+                questionList.clear();
+                for (com.google.firebase.database.DataSnapshot pollInformationSnapshot : dataSnapshot.getChildren()) {
+                    PollInformation pollInformation = pollInformationSnapshot.getValue(PollInformation.class);
+                    int i=0;
+                    questionList.add(pollInformation);
+
+                    Log.d("Aniuddh ","Nathani");
+                    Log.i("Value of element ",questionList.get(i).toString());
 
                     QuestionList adapter = new QuestionList(ProfileActivityNavBar.this,questionList);
                     myListView.setAdapter(adapter);
-        }
-        }
+                    i++;
+                }
+            }
 
             @Override
             public void onChildChanged(com.google.firebase.database.DataSnapshot dataSnapshot, String s) {
@@ -156,22 +163,44 @@ public class ProfileActivityNavBar extends AppCompatActivity
             }
         });
 
-            //Continue from here
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,android.R.layout.simple_list_item_1);
+        //Continue from here
+  /*      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this ,android.R.layout.simple_list_item_1);
         myListView.setAdapter(adapter);
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
+            private TextView Question;
+            private TextView Description;
+            private TextView Option1;
+            private TextView Option2;
+
+
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+
+                Question = (TextView)findViewById(R.id.textViewQuestion);
+                Description = (TextView)findViewById(R.id.textViewDescription);
+
+                Option1 = (TextView)findViewById(R.id.textViewOption1);
+
+                Option2 = (TextView)findViewById(R.id.textViewOption2);
+
+
+
                 Intent intent = new Intent(ProfileActivityNavBar.this, PollCount.class);
+
+                intent.putExtra("textViewQuestion", Question.getText().toString());
+                intent.putExtra("textViewDescription", Description.getText().toString());
+                intent.putExtra("textViewOption1", Option1.getText().toString());
+                intent.putExtra("textViewOption2", Option2.getText().toString());
                 startActivity(intent);
 
             }
         });
 
-
+*/
     }
 
     @Override
@@ -253,7 +282,7 @@ public class ProfileActivityNavBar extends AppCompatActivity
 
             FragmentManager fragmentManager= getSupportFragmentManager();
             FragmentTransaction ft=  fragmentManager.beginTransaction();
-             ft.replace(R.id.frame_profile_nav_bar,fragment);
+            ft.replace(R.id.frame_profile_nav_bar,fragment);
             ft.commit();
         }
 
@@ -263,30 +292,10 @@ public class ProfileActivityNavBar extends AppCompatActivity
     }
 
 
-    //SAVE BUTTON CODE
-    /*private void saveUserInformation(){
-        String name= editTextName.getText().toString().trim();
-        String address= editTextAddress.getText().toString().trim();
-
-        UserInformation userInformation = new UserInformation(name,address);
-
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        databaseReference.child(user.getUid()).setValue(userInformation);
-
-        Toast.makeText(this, "Information saved ...", Toast.LENGTH_LONG).show();
-    }
-    */
 
     @Override
     public void onClick(View view) {
 
-
-        /////SAVE BUTTON CODE
-
-        /*if(view==buttonSave){
-            saveUserInformation();
-        }
-        */
 
     }
 }
