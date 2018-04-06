@@ -36,7 +36,8 @@
         tools:layout_editor_absoluteX="8dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp">
 
 
         <EditText
@@ -46,7 +47,7 @@
             android:padding="7dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"
+            android:layout_margin="20dp"
             android:background="@drawable/rounded_text"
             android:hint="email address"
             android:inputType="textEmailAddress"
